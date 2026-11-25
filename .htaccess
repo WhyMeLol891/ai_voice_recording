@@ -1,0 +1,38 @@
+# ========================================================
+# AI Voice Recording Summarizer - Apache Configuration
+# ========================================================
+
+# Disable directory browsing
+Options -Indexes
+
+# Default charset
+AddDefaultCharset UTF-8
+
+# Protect sensitive environment and config files
+<FilesMatch "^\.env|\.env\.example|\.git|\.htaccess|\.log$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# PHP Execution & Upload configuration (if mod_php is loaded)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 250M
+    php_value post_max_size 250M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_value memory_limit 512M
+</IfModule>
+<IfModule mod_php8.c>
+    php_value upload_max_filesize 250M
+    php_value post_max_size 250M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_value memory_limit 512M
+</IfModule>
+
+# Prevent script execution inside upload/storage directories is handled by their own .htaccess

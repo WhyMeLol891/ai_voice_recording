@@ -1,0 +1,30 @@
+# Environment configuration (Contains sensitive API keys)
+.env
+.env.backup
+.env.local
+
+# Storage temporary files and logs
+storage/temp/*
+!storage/temp/.gitkeep
+!storage/temp/.htaccess
+
+storage/logs/*
+!storage/logs/.gitkeep
+!storage/logs/.htaccess
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+!uploads/.htaccess
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
